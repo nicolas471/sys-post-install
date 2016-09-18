@@ -1,0 +1,13 @@
+dotfiles
+ipython
+ipython-genutils
+mps-youtube
+pip-tools
+pyradio
+speedtest-cli
+youtube-dl 
+pep8
+flake8
+pyflakes
+isort
+yapf
