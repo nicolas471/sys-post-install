@@ -8,7 +8,7 @@ docker
 feh
 finch
 freetds
-freetds
+freetds-devel
 git
 glances
 gstreamer-devel
@@ -53,7 +53,10 @@ thunderbird
 tmux
 tmux-powerline
 unar
+unixODBC
 unixODBC-devel
 vlc
 wget
 xbacklight
+gcc-c++
+redhat-rpm-config
