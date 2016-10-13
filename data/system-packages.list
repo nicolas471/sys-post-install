@@ -11,10 +11,6 @@ freetds
 freetds-devel
 git
 glances
-gstreamer-devel
-gstreamer-plugins-bad
-gstreamer-plugins-ugly
-gstreamer1-libav
 htop
 i3
 i3lock
@@ -25,13 +21,13 @@ libxslt-devel
 lxappearance
 mplayer
 mpv
-nautilus-dropbox
 nmap
 nodejs
 npm
 ntop
 p7zip
 paper-gtk-theme
+paper-icon-theme
 pidgin
 powerline
 pv
