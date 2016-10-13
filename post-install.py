@@ -26,6 +26,9 @@ def install_repositories():
         for k, v in c.items():
             subprocess.Popen(v, stderr=subprocess.PIPE, shell=True)
 
+    subprocess.Popen(['sudo dnf update -y'], stderr=subprocess.PIPE,
+                     shell=True)
+
 
 def system_packages():
     '''Read from a list all packages needed and install'''
