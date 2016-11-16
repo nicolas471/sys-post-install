@@ -52,7 +52,5 @@ def clean():
 
 
 if '__main__' == __name__:
-    update()
     install_repositories()
     system_packages()
-    python_packages()
