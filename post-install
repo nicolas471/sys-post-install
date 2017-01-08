@@ -1,0 +1,79 @@
+#! /bin/bash
+
+EDITOR=vim
+PASSWD=/etc/passwd
+RED='\033[0;41;30m'
+STD='\033[0;0;39m'
+
+
+
+update(){
+	exec dnf update -y
+	return
+}
+
+add_repos(){
+	exec rpm -Uvh http://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora.noarch.rpm)
+	return 
+}
+
+install_sys_pkg(){
+	exec dnf install -y $(cat data/system-packages.list)
+	return 
+}
+
+install_py_pkg(){
+	exec pip3 install -r data/python-packages.list
+	return
+}
+
+purge_pkg(){
+	exec dnf remove -y $(cat data/purge.list)
+	return
+}
+
+dot_install(){
+	exec git clone https://github.com/nicolas471/mydotfiles ~/.dotfiles; cd ~/.dotfiles; ./install.sh
+	return
+}
+
+show_menu(){
+	clear
+	cat<<- _EOF_
+		------------------------------
+		Actions
+		------------------------------
+		1 - Update system
+		2 - Add repos
+		3 - Install system packages
+		4 - Install python packages
+		5 - Purge system packages
+		6 - Dotfiles installation
+		0 - Quit
+		------------------------------
+	_EOF_
+}
+
+read_options(){
+	local choice
+	read -p "Enter choice [0-5]>" choice
+	
+	case $choice in 
+		1) update ;;
+		2) add_repos update ;;
+		3) install_sys_pkg ;;
+		4) install_py_pkg ;;
+		5) purge_pkg ;;
+		6) dot_install ;;
+		0) exit 0;;
+		*) echo -e "${RED}Error...${STD}" && sleep 2
+	esac
+}
+
+trap '' SIGINT SIGQUIT SIGTSTP
+
+while true;do
+	show_menu
+	read_options	
+done
+echo "Program terminated"
