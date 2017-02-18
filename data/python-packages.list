@@ -11,3 +11,5 @@ pyflakes
 isort
 yapf
 virtualenvwrapper
+subliminal
+thefuck

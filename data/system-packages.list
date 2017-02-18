@@ -10,7 +10,6 @@ glances
 htop
 keepassx
 libxslt-devel
-mplayer
 mpv
 mozilla-fira-mono-fonts
 nmap
@@ -53,3 +52,4 @@ thefuck
 vim-powerline
 polari
 libreoffice-langpack-es
+ansible
