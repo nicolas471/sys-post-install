@@ -1,0 +1,30 @@
+##Users and groups
+useradd -m -G wheel -s /bin/zsh nstefani
+echo 'nstefani ALL=(ALL) ALL' >> /etc/sudoers
+
+##Network
+systemctl start dhcpcd; systemctl enable dhcpcd
+
+##Packages
+#python root packages
+pip install --user -r data/python-packages.list
+
+##GUI
+#Install weston, xorg-xwayland, gnome, gdm
+systemctl enable gdm
+
+##User configuraion
+#dotfiles install 
+#git clone https://github.com/nicolas471/mydotfiles ~/.dotfiles
+
+#yaourt installation
+yaourt_install(){
+    git clone 'https://aur.archlinux.org/package-query.git'
+    cd package_query
+    makepkg -si
+    cd ..
+    git clone 'https://aur.archlinux.org/yaourt.git'
+    cd yaourt
+    makepkg -si 
+}
+
